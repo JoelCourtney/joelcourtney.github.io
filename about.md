@@ -3,4 +3,4 @@ layout: default
 ---
 # About me or some shit
 
-i dunno
+i dunno uh <= 2
