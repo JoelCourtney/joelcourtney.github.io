@@ -1,0 +1,53 @@
+.topbar {
+  background-color: #dbe4ed;
+  // background-color: white;
+  // background-color: #436280;
+  // background-color: rgb(150, 255, 255);
+}
+
+#my-jumbotron {
+  color: black;
+  text-align: center;
+  margin: 0px;
+  padding: 30px 0px 10px;
+  position: relative;
+}
+
+#navbar {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  text-align: center;
+  padding: 20px;
+  overflow: hidden;
+}
+
+.current-nav {
+  background-color: rgba(0,0,0,1);
+  color: white;
+}
+
+.not-current-nav {
+  background-color: rgba(0,0,0,0.7);
+  color: white;
+}
+
+#my-name {
+  margin: 0;
+  position: relative;
+  // mix-blend-mode: difference;
+}
+
+.mandelbrot-image {
+  position: absolute;
+  right: 0;
+  width: 100%;
+}
+
+#mandelbrot-1 {
+  bottom: 0;
+}
+
+#mandelbrot-2 {
+  top: 0;
+}

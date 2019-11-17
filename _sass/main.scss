@@ -1,56 +1,17 @@
-.current-nav {
-  background-color: blue;
-  color: white;
-}
-
-.not-current-nav {
-  background-color: gray;
-  color: black;
-}
-
-#navbar {
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
-  text-align: center;
-  background-color: black;
-  padding: 20px;
-  overflow: hidden;
-}
-
 .joelcourtney-net {
-  background-color: #282828;
+  // background-color: #436280;
+  // background-color: #a3bad2;
+  background-color: black;
   font-family: 'Fira Code', normal;
 }
 
-#my-jumbotron {
-  background-color: black;
-  color: white;
-  text-align: center;
-  margin: 0px;
-  padding: 30px 0px 10px;
-  position: relative;
-  // background-image: url('/assets/images/mandelbrot_upper.png');
-  // background-size: 100%, auto;
-  // background
+.content {
+  background-color: #112236;
+  margin: 20px 10%;
+  padding: 30px;
+  // color: white;
+  color: #dbe4ed;
 }
 
-#my-name {
-  margin: 0;
-  position: relative;
-  // mix-blend-mode: difference;
-}
-
-.mandelbrot-image {
-  position: absolute;
-  right: 0;
-  width: 100%;
-}
-
-#mandelbrot-1 {
-  bottom: 0;
-}
-
-#mandelbrot-2 {
-  top: 0;
+h1 {
 }
