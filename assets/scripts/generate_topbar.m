@@ -1,28 +1,36 @@
 clear all; close all; clc;
 
-full = imread('../images/mandelbrot_full.png');
+source = imread('../images/mandelbrot_full.png');
 
 % full = [full(:,:,1), full(:,:,3), full(:,:,2)];
-structure = full(:,1:9248,2);
-% minus = 255-structure;
-% full(:,:,1) = minus;
-% full(:,:,2) = minus;
-% full(:,:,3) = 255*ones(size(full,1), size(full,2));
-full = 255-structure;
+structure = uint8(((source(:,1:9248,2) / 255.) .^ 2) * 255);
+minus = 255-structure;
+zero = zeros(size(structure,1), size(structure,2));
+
+R = 174/255.;
+G = 32/255.;
+B = 48/255.;
+
+full(:,:,1) = structure*R;
+full(:,:,2) = structure*G;
+full(:,:,3) = structure*B;
+% full = 255-structure;
 alpha = structure;
 
 % full = (255-full);
 
-mid = floor(3485/2);
+scale = 0.25;
 
-full = imresize(full, 0.5);
-alpha = imresize(alpha, 0.5);
+mid = floor(3485*scale);
 
-upper = full(1:mid,:,:);
-upper_alpha = alpha(1:mid,:);
+full = imresize(full, scale);
+alpha = imresize(alpha, scale);
 
-lower = full(mid+1:end,:,:);
-lower_alpha = alpha(mid+1:end,:);
+upper = full(floor(mid/2):mid,:,:);
+upper_alpha = alpha(floor(mid/2):mid,:);
+
+lower = full(mid+1:(mid+end)/2,:,:);
+lower_alpha = alpha(mid+1:(mid+end)/2,:);
 
 imwrite(upper, '../images/mandelbrot_upper.png', 'Alpha', upper_alpha);
 imwrite(lower, '../images/mandelbrot_lower.png', 'Alpha', lower_alpha);

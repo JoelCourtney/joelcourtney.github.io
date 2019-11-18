@@ -1,5 +1,20 @@
 ---
 ---
+
+{% assign palette = site.data.palettes.pinecone %}
+
+$bright: #{{ palette.bright }};
+$light: #{{ palette.light }};
+$medium: #{{ palette.medium }};
+$dim: #{{ palette.dim }};
+$dark: #{{ palette.dark }};
+
+@import url(http://overpass-30e2.kxcdn.com/overpass-mono.css);
+@import url(https://cdn.jsdelivr.net/gh/tonsky/FiraCode@1.207/distr/fira_code.css);
+
+$font: overpass-mono;
+$code_font: Fira Code;
+
 @import "main";
 @import "topbar";
-@import "fira_code";
+@import "monokai";

@@ -1,17 +1,27 @@
 .joelcourtney-net {
   // background-color: #436280;
   // background-color: #a3bad2;
-  background-color: black;
-  font-family: 'Fira Code', normal;
+  background-color: $dark;
+  font-family: $font, monospace;
 }
 
 .content {
-  background-color: #112236;
+  background-color: $dim;
   margin: 20px 10%;
-  padding: 30px;
-  // color: white;
-  color: #dbe4ed;
-}
+  padding-top: 5px;
+  padding-bottom: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+  color: $bright;
+  font-size: 11pt;
 
-h1 {
+  h1, h2, h3, h4 {
+    color: $light;
+  }
+
+  code {
+    color: $bright;
+    font-family: $code_font, monospace;
+  }
+
 }
