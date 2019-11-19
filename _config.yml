@@ -5,10 +5,10 @@ defaults:
       type: "pages"
     values:
       layout: "page_layout"
+      css: ""
   -
     scope:
       path: "projects"
       type: "pages" # previously `page` in Jekyll 2.2.
     values:
-      layout: "project" # overrides previous default layout
-      author: "Mr. Hyde"
+      layout: "project_layout" # overrides previous default layout

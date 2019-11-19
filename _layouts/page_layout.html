@@ -14,6 +14,13 @@
   <link rel="stylesheet" href="/assets/css/styles.css">
   <!-- <script src="https://d3js.org/d3-array.v2.min.js"></script> -->
   <!-- <script src="mandelbrot.js"></script> -->
+
+  {% if page.css != "" %}
+  <link rel="stylesheet" href="/assets/css/{{ page.css }}.css">
+  {% endif %}
+
+  <base target="_blank">
+
 </head>
 <body class="joelcourtney-net">
   {% include topbar.html %}
