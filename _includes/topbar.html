@@ -9,7 +9,7 @@
   <nav>
     <div class="btn-group" role="group" aria-label="Basic example">
       {% for item in site.data.navigation %}
-      <button type="button" class="btn btn-secondary {% if page.url == item.url %} current-nav {% else %} not-current-nav {% endif %}" onclick="window.location.href = '{{ item.link }}';">{{ item.name }}</button>
+      <button type="button" class="btn btn-secondary {% if page.url == item.link %} current-nav {% else %} not-current-nav {% endif %}" onclick="window.location.href = '{{ item.link }}';">{{ item.name }}</button>
       {% endfor %}
     </div>
   </nav>

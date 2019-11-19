@@ -1,6 +1,6 @@
 ---
 title: Joel Courtney
-layout: default
+permalink: /
 ---
 # asdf
 
