@@ -7,8 +7,7 @@ css: home
 
 ![example image](/assets/images/blue.png){: #mugshot}
 Test image that will eventually be me with sexy hair:  
-
-asdf
+I'm a senior undergraduate at CU Boulder, studying Astrophysics, Computer Science, and Applied Math.
 
 # Links
 - Personal Email: <joel.e.courtney@gmail.com>

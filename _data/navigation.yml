@@ -2,5 +2,7 @@
   link: /
 - name: About
   link: /about
+- name: Hadron
+  link: /hadron
 - name: Projects
   link: /projects
