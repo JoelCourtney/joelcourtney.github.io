@@ -4,11 +4,4 @@ permalink: about
 ---
 # About me or some shit
 
-i dunno uh <= 2
-
-
-```python
-def main():
-  testing_code_stuff()
-  return 1 <= 4
-```
+i dunno uh
