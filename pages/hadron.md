@@ -237,6 +237,25 @@ for (
 
 Note that Hadron indexes and iterates in row-major order.
 
+Do-while loops, strictly speaking, don't exist in Hadron. But since blocks can be placed _anywhere_, even as the while loop condition, we can bodge a do-while loop without much effort:
+
+```scala
+var x = 3
+while {
+  // this is always evaluated at least once
+  println(x)
+  x > 0 // the last statement is the loop condition
+} {
+  x -= 1
+}
+/* Prints:
+3
+2
+1
+0
+*/
+```
+
 #### Continue, break, return, and yield
 
 are not keywords in Hadron. Instead, Hadron uses a unique syntax that, admittedly, might be a terrible idea. We'll see.
