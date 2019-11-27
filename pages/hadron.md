@@ -308,6 +308,14 @@ for 0:5 as i {
     <~~ // breaks the outer loop
   }
 }
+
+// Note that you can even break from inside the condition of a while loop
+while {
+  <~
+  true
+} {
+  println("this is never executed, and this is not an error")
+}
 ```
 
 To be continued <~
