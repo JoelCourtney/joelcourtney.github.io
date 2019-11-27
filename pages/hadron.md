@@ -243,17 +243,12 @@ Do-while loops, strictly speaking, don't exist in Hadron. But since blocks can b
 var x = 3
 while {
   // this is always evaluated at least once
-  println(x)
+  print(x)
   x > 0 // the last statement is the loop condition
 } {
   x -= 1
 }
-/* Prints:
-3
-2
-1
-0
-*/
+// Prints 3210
 ```
 
 #### Continue, break, return, and yield
