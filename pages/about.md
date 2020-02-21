@@ -2,6 +2,6 @@
 title: About
 permalink: about
 ---
-# About me or some shit
+# About me or something
 
-i dunno uh
+Will fill in eventually.

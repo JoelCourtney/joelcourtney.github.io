@@ -6,9 +6,16 @@ defaults:
     values:
       layout: "page_layout"
       css: ""
+      sneaky: "false"
   -
     scope:
-      path: "projects"
-      type: "pages" # previously `page` in Jekyll 2.2.
+      path: "sneaky"
+      type: "pages"
     values:
-      layout: "project_layout" # overrides previous default layout
+      layout: "page_layout"
+      css: ""
+      sneaky: "true"
+
+markdown: kramdown
+kramdown:
+  math_engine: mathjax
