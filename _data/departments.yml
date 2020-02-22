@@ -1,0 +1,10 @@
+- code: csci
+  name: Computer Science
+  classes:
+    - code: csci3090
+      name: Quantum Computing
+- code: phys
+  name: Physics
+  classes:
+    - code: phys3220
+      name: Quantum Mechanics 1

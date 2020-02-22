@@ -15,7 +15,14 @@ defaults:
       layout: "page_layout"
       css: ""
       sneaky: "true"
+  -
+    scope:
+      path: "_posts/notes"
+    values:
+      layout: "page_layout"
+      css: ""
+      category: notes
+      sneaky: "true"
 
 markdown: kramdown
-kramdown:
-  math_engine: mathjax
+mathjax: true
