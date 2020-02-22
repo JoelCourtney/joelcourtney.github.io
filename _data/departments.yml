@@ -3,6 +3,8 @@
   classes:
     - code: csci3090
       name: Quantum Computing
+    - code: csci4448
+      name: Object Oriented Analysis and Design
 - code: phys
   name: Physics
   classes:

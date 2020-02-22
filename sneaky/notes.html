@@ -68,7 +68,7 @@ if ('class_code' in urlParams) {
     var classes = departments[d].classes;
     for (var c = 0; c < classes.length; c++) {
       contents += '<a href="?class_code=' + classes[c].code + '" target="_self">' +
-        classes[c].name + '</a>';
+        classes[c].name + '</a><br />';
     }
   }
 }
