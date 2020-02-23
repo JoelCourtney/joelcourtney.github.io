@@ -5,6 +5,8 @@
       name: Quantum Computing
     - code: csci4448
       name: Object Oriented Analysis and Design
+    - code: csci4446
+      name: Chaotic Dynamics
 - code: phys
   name: Physics
   classes:

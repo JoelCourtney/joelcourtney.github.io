@@ -2,7 +2,7 @@
 <script type="text/tikz">
 \begin{tikzpicture}[scale=2,white]
 {{ include.c | replace: "\d", "\draw" | replace: "\n", "\node"
-  | replace: "\re", "rectangle" }}
+  | replace: "\r ", "rectangle " | replace: "\p", "plot" }}
 \end{tikzpicture}
 </script>
 </center>
