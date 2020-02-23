@@ -17,9 +17,9 @@
           <button type="button" class="btn btn-secondary {% if page.url == item.link %} current-nav {% else %} not-current-nav {% endif %}" onclick="window.location.href = '{{ item.link }}';">{{ item.name }}</button>
         {% endfor %}
       {% else %}
-      {% for item in site.data.sneaky_navigation %}
-        <button type="button" class="btn btn-secondary {% if page.url == item.link %} current-nav {% else %} not-current-nav {% endif %}" onclick="window.location.href = '{{ item.link }}';">{{ item.name }}</button>
-      {% endfor %}
+        {% for item in site.data.sneaky_navigation %}
+          <button type="button" class="btn btn-secondary {% if page.url == item.link %} current-nav {% else %} not-current-nav {% endif %}" onclick="window.location.href = '{{ item.link }}';">{{ item.name }}</button>
+        {% endfor %}
       {% endif %}
     </div>
   </nav>

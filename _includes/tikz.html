@@ -1,8 +1,10 @@
 <center>
+  <div class="tikz-box">
 <script type="text/tikz">
-\begin{tikzpicture}[scale=2,white]
+\begin{tikzpicture}[color=white,scale=2,draw=white]
 {{ include.c | replace: "\d", "\draw" | replace: "\n", "\node"
   | replace: "\r ", "rectangle " | replace: "\p", "plot" }}
 \end{tikzpicture}
 </script>
+</div>
 </center>

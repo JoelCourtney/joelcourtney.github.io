@@ -3,7 +3,7 @@ title: Joel Courtney
 permalink: /
 css: home
 ---
-# Hi
+# Hello
 
 ![example image](/assets/images/blue.png){: #mugshot}
 Test image that will eventually be me with sexy hair:  

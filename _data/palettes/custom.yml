@@ -1,0 +1,5 @@
+bright: "000020" # text and topbar background
+light: "be3144" # headers
+medium: "274684" # topbar title and buttons
+dim: "071739" # middle content
+dark: "000000" # back side bar

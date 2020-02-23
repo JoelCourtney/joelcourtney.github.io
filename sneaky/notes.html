@@ -42,7 +42,6 @@ var notes = [
 {% endfor %}
 ];
 notes.sort(function(a,b) {return (a.url == b.url) ? 0 : ((a.url > b.url) ? 1 : -1)});
-console.log(notes);
 var contents;
 if ('class_code' in urlParams) {
   var current_class;
@@ -63,7 +62,6 @@ if ('class_code' in urlParams) {
 } else {
   contents = "<h1>Courses</h1>";
   for (var d = 0; d < departments.length; d++) {
-    console.log(d);
     contents += "<h2>" + departments[d].name + "</h2>";
     var classes = departments[d].classes;
     for (var c = 0; c < classes.length; c++) {
