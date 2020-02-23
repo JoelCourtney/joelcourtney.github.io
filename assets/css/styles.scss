@@ -15,6 +15,6 @@ $dark: #{{ palette.dark }};
 $font: overpass;
 $code_font: Fira Code;
 
-@import "assets/css/main";
-@import "assets/css/topbar";
-@import "assets/css/monokai";
+@import "main";
+@import "topbar";
+@import "monokai";
