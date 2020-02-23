@@ -12,3 +12,13 @@
   classes:
     - code: phys3220
       name: Quantum Mechanics 1
+- code: math
+  name: Mathematics
+  classes:
+    - code: math3140
+      name: Abstract Algebra 1
+- code: stat
+  name: Statistics
+  classes:
+    - code: stat4010
+      name: Statistical Methods 2
