@@ -21959,7 +21959,7 @@ async function tikzjax_loader_callback() {
   }, Promise.resolve());
 };
 
-// window.onload = tikzjax_loader_callback;
+window.onload = tikzjax_loader_callback;
 window.addEventListener('tikzrenderrequest', tikzjax_loader_callback);
 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../node_modules/buffer/index.js */ "./node_modules/buffer/index.js").Buffer))

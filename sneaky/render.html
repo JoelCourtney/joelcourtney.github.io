@@ -19,6 +19,7 @@ permalink: render
         var reader = new FileReader();
         var converter = new showdown.Converter();
         converter.setOption('tables', true);
+        converter.setOption('literalMidWordUnderscores', false);
         converter.setFlavor('github');
 
         // Closure to capture the file information.
