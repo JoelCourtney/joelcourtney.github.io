@@ -21914,7 +21914,8 @@ async function tex(input) {
   return _library__WEBPACK_IMPORTED_MODULE_2__["readFileSync"]("sample.dvi");
 }
 
-window.onload = async function () {
+async function tikzjax_loader_callback() {
+  console.log("asdf");
   await load();
 
   async function process(elt) {
@@ -21957,6 +21958,10 @@ window.onload = async function () {
     return process(element);
   }, Promise.resolve());
 };
+
+// window.onload = tikzjax_loader_callback;
+window.addEventListener('tikzrenderrequest', tikzjax_loader_callback);
+
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../node_modules/buffer/index.js */ "./node_modules/buffer/index.js").Buffer))
 
 /***/ }),
