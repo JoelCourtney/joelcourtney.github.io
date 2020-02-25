@@ -12,6 +12,8 @@
   classes:
     - code: phys3220
       name: Quantum Mechanics 1
+    - code: phys3320
+      name: Electricity & Magnetism 2
 - code: math
   name: Mathematics
   classes:

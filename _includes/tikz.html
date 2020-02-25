@@ -2,8 +2,7 @@
   <div class="tikz-box">
 <script type="text/tikz">
 \begin{tikzpicture}[color=white,scale=2,draw=white]
-{{ include.c | replace: "\d", "\draw" | replace: "\n", "\node"
-  | replace: "\r ", "rectangle " | replace: "\p", "plot" }}
+{{ include.c }}
 \end{tikzpicture}
 </script>
 </div>

@@ -46,7 +46,7 @@ permalink: render
                     href: "/assets/css/render_style.css"
                 });
                 $('head').append(link);
-                window.dispatchEvent(new CustomEvent("tikzrenderrequest"));
+                window.dispatchEvent(new CustomEvent("renderrequest"));
                 MathJax.typesetPromise();
             };
         })(f);

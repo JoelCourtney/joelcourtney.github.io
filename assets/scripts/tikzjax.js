@@ -21915,7 +21915,6 @@ async function tex(input) {
 }
 
 async function tikzjax_loader_callback() {
-  console.log("asdf");
   await load();
 
   async function process(elt) {
@@ -21960,7 +21959,7 @@ async function tikzjax_loader_callback() {
 };
 
 window.onload = tikzjax_loader_callback;
-window.addEventListener('tikzrenderrequest', tikzjax_loader_callback);
+window.addEventListener('renderrequest', tikzjax_loader_callback);
 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../node_modules/buffer/index.js */ "./node_modules/buffer/index.js").Buffer))
 
