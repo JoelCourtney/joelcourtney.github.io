@@ -24,3 +24,8 @@
   classes:
     - code: stat4010
       name: Statistical Methods 2
+- code: astr
+  name: Astronomy
+  classes:
+    - code: astr3830
+      name: Astrophysics II

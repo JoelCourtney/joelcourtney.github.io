@@ -1,6 +1,6 @@
 - name: Sneaky Home
   link: /sneaky
-- name: Notes
-  link: /notes
 - name: Render
   link: /render
+- name: Scraper
+  link: /scrape

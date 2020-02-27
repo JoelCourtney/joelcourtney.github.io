@@ -1,9 +1,15 @@
 ---
 title: Renderer Tool
 permalink: render
+scripts:
+    - /assets/scripts/render.js
+    - https://cdn.jsdelivr.net/npm/showdown@1.9.1/dist/showdown.min.js
+    - https://cdn.jsdelivr.net/npm/mathjax@latest/es5/tex-svg.js
+    - https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js
+    - https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js
+    - /assets/scripts/params.js
+    - /assets/scripts/tikzjax-min.js
 ---
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/showdown@1.9.1/dist/showdown.min.js"></script>
 <h1>Markdown, MathJax, and TikzJax Renderer</h1>
 <form enctype="multipart/form-data">
     <input id="upload" type=file accept="text/md" name="files[]" size=30>
@@ -17,37 +23,13 @@ permalink: render
         f = files[0];
 
         var reader = new FileReader();
-        var converter = new showdown.Converter();
-        converter.setOption('tables', true);
-        converter.setOption('literalMidWordUnderscores', false);
-        converter.setFlavor('github');
 
         // Closure to capture the file information.
         reader.onload = (function (theFile) {
             return function (e) {
                 var text = e.target.result;
-                text = text.replace("<tikz>", '<center><sc'+'ript type="text/tikz">\\begin{tikzpicture}[scale=2]');
-                text = text.replace("</tikz>", '\\end{tikzpicture}</scr'+'ipt></center>');
-                text = converter.makeHtml(text);
-                document.body.innerHTML = text;
-                document.body.className = "";
-                document.title = f.name.replace(".md", ".pdf");
-                var stylesheets = document.getElementsByTagName('link'), i, sheet;
-                for(i in stylesheets) {
-                    sheet = stylesheets[i];
-                    if (sheet.parentNode) {
-                        if(sheet.getAttribute('type').toLowerCase() == 'text/css')
-                            sheet.parentNode.removeChild(sheet);
-                    }
-                }
-                var link = $("<link />",{
-                    rel: "stylesheet",
-                    type: "text/css",
-                    href: "/assets/css/render_style.css"
-                });
-                $('head').append(link);
-                window.dispatchEvent(new CustomEvent("renderrequest"));
-                MathJax.typesetPromise();
+                text = convert(text);
+                render(text, true);
             };
         })(f);
 

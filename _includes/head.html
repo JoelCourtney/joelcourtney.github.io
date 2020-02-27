@@ -6,13 +6,15 @@
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css" type="text/css">
 <link rel="stylesheet" type="text/css" href="/assets/css/styles.css">
-<script src="/assets/scripts/rendering.js" async></script>
-<link rel="stylesheet" type="text/css" href="/assets/css/tikz_fonts.css">
 <script src="/assets/scripts/sneak_listener.js"></script>
 
 {% if page.css != "" %}
 <link rel="stylesheet" href="/assets/css/{{ page.css }}.css" type="text/css">
 {% endif %}
+
+{% for script in page.scripts %}
+<script src="{{ script }}"></script>
+{% endfor %}
 
 <base target="_blank">
 
