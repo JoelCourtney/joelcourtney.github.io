@@ -19,8 +19,8 @@ var delimiters = [
 ];
 
 var replacements = [
-    [/<tikz>/g, '<center><sc'+'ript type="text/tikz">\\begin{tikzpicture}[scale=2]'],
-    [/<\/tikz>/g, '\\end{tikzpicture}</scr'+'ipt></center>'],
+    [/<tikz>/g, '<div class="tikzdiv"><center><sc'+'ript type="text/tikz">\\begin{tikzpicture}[scale=2]'],
+    [/<\/tikz>/g, '\\end{tikzpicture}</scr'+'ipt></center></div>'],
     [/\$%/g, "\\begin{align}"],
     [/%\$/g, "\\end{align}"],
     [/<table>/g, '<table class="table table-bordered table-nonfluid">']
@@ -31,6 +31,7 @@ function render(input, clean, from_link) {
     var cuts = [];
     var scripts = [];
     var i = text.indexOf('<script');
+    var script_count = 0;
     while (i != -1) {
         var j = text.indexOf('</script>');
         if (j == -1) {
@@ -38,8 +39,25 @@ function render(input, clean, from_link) {
             return "missing close script tag";
         }
         var script = text.slice(i, j+'</script>'.length);
+        var close_hairpin = script.indexOf('>');
+        var div = script.indexOf(' div');
+        var print = script.indexOf(' print');
+        var pretty = script.indexOf(' pretty');
+        var post_matter = '';
+        if (pretty != -1 && pretty < close_hairpin) {
+            console.log("pretty");
+        }
+        if (print != -1 && print < close_hairpin) {
+            console.log("print");
+        }
+        if (div != -1 && div < close_hairpin) {
+            post_matter += '<div class="scriptdiv" id="autogendiv' + script_count + '" style="width:600px;height:300px;"></div>';
+            script = script.replace("%%%div%%%", "autogendiv" + script_count);
+            console.log("adsf");
+        }
         scripts.push(script);
-        text = text.slice(0,i) + text.slice(j+'</script>'.length);
+        text = text.slice(0,i) + post_matter + text.slice(j+'</script>'.length);
+        script_count++;
         i = text.indexOf('<script');
     }
     var cut_counter = 0;
@@ -100,18 +118,15 @@ function prettify_code(text) {
 
 }
 
-var canvas_id_count = 0;
-function get_canvas(script_id) {
-  var id = "autogen_script_canvas-" + canvas_id_count;
-  canvas_id_count++;
-  var canvas = document.createElement("canvas");
-  canvas.id = id;
-}
-
 function paste(text, body) {
     if (body) {
         document.body.innerHTML = text;
     } else {
         document.getElementById("pastebox").innerHTML = text;
     }
+}
+
+var canvas_id_count = 0;
+function spawn_canvas(id) {
+    console.log(id);
 }

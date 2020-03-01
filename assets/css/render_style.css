@@ -25,9 +25,19 @@ blockquote p {
   display: inline;
 }
 
+.tikzdiv {
+  padding-top: 10px;
+}
+
 @media print {
   .pagebreak {
       clear: both;
       page-break-after: always;
+  }
+  .scriptdiv {
+    page-break-inside: avoid;
+  }
+  .tikzdiv {
+    page-break-inside: avoid;
   }
 }
