@@ -16,7 +16,9 @@ scripts:
 <form enctype="multipart/form-data">
 <div class="form-group">
     <label for="upload">Upload a markdown file:</label>
-    <input class="btn btn-primary form-control-file" id="upload" type="file" accept="text/md" name="files[]" size=30>
+    
+    <input class="btn btn-primary form-control-file" id="upload" type="file" accept="text/md" name="files[]" size="30">
+
 </div>
 </form>
 
