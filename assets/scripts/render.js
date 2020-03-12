@@ -23,7 +23,7 @@ var replacements = [
     [/<\/tikz>/g, '\\end{tikzpicture}</scr'+'ipt></center></div>'],
     [/\$%/g, "\\begin{align}"],
     [/%\$/g, "\\end{align}"],
-    [/<table>/g, '<table class="table table-bordered table-nonfluid">']
+    [/<table>/g, '<table class="table table-bordered table-nonfluid">'],
 ]
 
 function render(input, clean, from_link) {
@@ -53,7 +53,6 @@ function render(input, clean, from_link) {
         if (div != -1 && div < close_hairpin) {
             post_matter += '<div class="scriptdiv" id="autogendiv' + script_count + '" style="width:600px;height:300px;"></div>';
             script = script.replace("%%%div%%%", "autogendiv" + script_count);
-            console.log("adsf");
         }
         scripts.push(script);
         text = text.slice(0,i) + post_matter + text.slice(j+'</script>'.length);
@@ -130,3 +129,9 @@ var canvas_id_count = 0;
 function spawn_canvas(id) {
     console.log(id);
 }
+
+window.addEventListener('renderrequest', (event) => {
+    document.querySelectorAll('pre code').forEach((block) => {
+      hljs.highlightBlock(block);
+    });
+  });

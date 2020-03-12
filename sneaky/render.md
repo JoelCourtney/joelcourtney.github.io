@@ -3,20 +3,21 @@ title: Renderer Tool
 permalink: render
 scripts:
     - https://cdn.plot.ly/plotly-latest.min.js
+    - https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js&autorun=false
     - /assets/scripts/render.js
     - https://cdn.jsdelivr.net/npm/showdown@1.9.1/dist/showdown.min.js
     - https://cdn.jsdelivr.net/npm/mathjax@latest/es5/tex-svg.js
-    - https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js
     - https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js
     - /assets/scripts/params.js
     - /assets/scripts/tikzjax-min.js
     - /assets/scripts/upload_render.js
+    - /assets/scripts/math.min.js
 ---
 # Markdown, MathJax, and TikzJax Renderer
 <form enctype="multipart/form-data">
 <div class="form-group">
     <label for="upload">Upload a markdown file:</label>
-    
+
     <input class="btn btn-primary form-control-file" id="upload" type="file" accept="text/md" name="files[]" size="30">
 
 </div>

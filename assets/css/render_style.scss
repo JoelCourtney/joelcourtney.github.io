@@ -1,0 +1,72 @@
+---
+---
+
+body {
+    font-family: overpass, monospace;
+}
+
+code {
+    font-family: Fira Code, monospace;
+  border-radius: 5px;
+}
+
+blockquote {
+  background: #f9f9f9;
+  border-left: 10px solid #ccc;
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+  quotes: "\201C""\201D""\2018""\2019";
+}
+blockquote:before {
+  color: #ccc;
+  /* content: open-quote; */
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.4em;
+}
+blockquote p {
+  display: inline;
+}
+
+.tikzdiv {
+  padding-top: 10px;
+}
+
+h1 {
+  text-align:center;
+  font-variant: small-caps;
+  padding:10px;
+  background-color:blue;
+  border-radius: 5px;
+  color: white;
+}
+
+h2:after {
+  content:' ';
+  display:block;
+  border: 1px dashed black;
+}
+
+pre {
+  white-space: pre-wrap;       /* css-3 */
+  white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+  white-space: -pre-wrap;      /* Opera 4-6 */
+  white-space: -o-pre-wrap;    /* Opera 7 */
+  word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+
+@media print {
+  .pagebreak {
+      clear: both;
+      page-break-after: always;
+  }
+  .scriptdiv {
+    page-break-inside: avoid;
+  }
+  .tikzdiv {
+    page-break-inside: avoid;
+  }
+}
+
+.hljs{display:block;overflow-x:auto;padding:.5em;background:#282b2e}.hljs-keyword,.hljs-selector-tag,.hljs-literal,.hljs-selector-id{color:#93c763}.hljs-number{color:#ffcd22}.hljs{color:#e0e2e4}.hljs-attribute{color:#668bb0}.hljs-code,.hljs-class .hljs-title,.hljs-section{color:white}.hljs-regexp,.hljs-link{color:#d39745}.hljs-meta{color:#557182}.hljs-tag,.hljs-name,.hljs-bullet,.hljs-subst,.hljs-emphasis,.hljs-type,.hljs-built_in,.hljs-selector-attr,.hljs-selector-pseudo,.hljs-addition,.hljs-variable,.hljs-template-tag,.hljs-template-variable{color:#8cbbad}.hljs-string,.hljs-symbol{color:#ec7600}.hljs-comment,.hljs-quote,.hljs-deletion{color:#818e96}.hljs-selector-class{color:#A082BD}.hljs-keyword,.hljs-selector-tag,.hljs-literal,.hljs-doctag,.hljs-title,.hljs-section,.hljs-type,.hljs-name,.hljs-strong{font-weight:bold}
