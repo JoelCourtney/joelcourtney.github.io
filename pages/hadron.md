@@ -3,22 +3,23 @@ title: Hadron
 permalink: /hadron
 ---
 # The Hadron Programming Language
-is a scripting language designed for physical and numerical computation. [The interpreter](https://github.com/JoelCourtney/hadron) uses [ANTLR](https://www.antlr.org/), [Truffle](https://github.com/oracle/graal/tree/master/truffle) and the [GraalVM](https://www.graalvm.org/), and is still in progress.
+
+is a scripting language designed for physical and numerical computation. [The interpreter](https://github.com/JoelCourtney/hadron) uses [Kotlin](https://kotlinlang.org/) and [ANTLR](https://www.antlr.org/), and is still in progress.
 
 ---
 
 ## Features
 
-- Matrices and matrix operations a. la. MatLab
+- Matrices and matrix operations a. la. MATLAB
 - Native support for units and dimension types
-- Easy foreign language interop with Truffle
-- Complex numbers and big integers
+- Complex numbers, big integers, and rational numbers
+- A unique break and return syntax that might be a terrible idea
 
 ---
 
 ## Syntax
 
-The grammar currently used in the [interpreter's repo](https://github.com/JoelCourtney/hadron) is not indicative of Hadron's syntax, as it still has elements from Oracle's [SimpleLanguage](https://github.com/graalvm/simplelanguage) grammar.
+The grammar currently used in the [interpreter's repo](https://github.com/JoelCourtney/hadron) does not support all of the syntax below, as it is only at the MVP stage, and is still in progress.
 
 After the interpreter itself is complete, I'll make a pull request to [Rouge](https://github.com/rouge-ruby/rouge) to have Hadron properly highlighted in the code blocks below.
 
@@ -35,7 +36,7 @@ val y = 6 /* y is a new constant,
 
 ### Value literals and primitive data types
 
-Hadron's primitive types are: booleans, integers (arbitrary precision), floats (double precision), strings, matrices, and functions.
+Hadron's primitive types are: booleans, integers (arbitrary precision), rational fractions (arbitrary precision), floats (double precision), strings, matrices, and functions.
 
 ```scala
 // booleans
@@ -49,7 +50,7 @@ true; false
 1.1; 1.; .5; -.5
 3e6; 3E6; 3.2e-6 // with scientific notation
 
-// You can use percents too
+// You can use percents too. They do what you think they do, probably.
 15%; 2.4%; 150%
 
 // strings
@@ -79,7 +80,7 @@ Note: there is a difference between a multi-dimensional matrix, and a nested mat
  * nested lists will not preform matrix operations correctly.
  *
  * It stands to reason that I will include a flatten-esque built-in function
- * for converting between the two.
+ * for converting between the two, but it doesn't exist yet.
  */
 
 ( // This is a matrix
@@ -88,14 +89,14 @@ Note: there is a difference between a multi-dimensional matrix, and a nested mat
   7, 8, 9
 )
 
-( // This is a nested list
+( // This is a list of row vectors
   (1, 2, 3),
   (4, 5, 6),
   (7, 8, 9)
 )
 ```
 
-But wait, what about order of operations? Does `(2*3) + 4` evaluate to the scalar `10` or the matrix `(10)`? The short answer is don't worry about it. The long answer is: for efficiency, it will default to a scalar. But if you try to use any matrix operation on a scalar, it will be automatically converted to make it work. If you use a matrix with a single element as if it was unwrapped, it will be automatically unwrapped for you. I think that's pretty cool.
+But wait, what about order of operations? Does `(2*3) + 4` evaluate to the scalar `10` or the matrix `(10)`? The short answer is don't worry about it. The long answer is: for efficiency, it will default to a scalar. But if you try to use any matrix operation on a scalar, it will be automatically wrapped in a one-element matrix to make it work. If you use a matrix with a single element as if it was unwrapped, it will be automatically unwrapped for you. I think that's pretty cool.
 
 Functions are first class data types, and can be defined and redefined dynamically. The following function definitions behave identically:
 
@@ -158,9 +159,11 @@ if x < 5
 else
   println("is false")
 
-// One liner
-if x < 5; println("case 1") else if {x < 10} println("case 2") else println("case 3")
+// One liner, if you're into that kinda thing.
+if x < 5; println("case 1") else if x < 10; println("case 2") else println("case 3")
 ```
+
+It is possible to abuse the fact that blocks are expressions that evaluate to data values, and put messy multi-statement blocks inside the _condition_ of an if statement. While that is a neat idea, don't! That sounds very unreadable.
 
 #### Loops
 
@@ -177,16 +180,16 @@ loop
   println("Hello World!")
 ```
 
-For loops use a unique syntax for enumeration. Let's build up to it. The following is for loop where the results of the iteration are inaccessible:
+For loops use a unique syntax for enumeration. Let's build up to it. The following is a for loop where the results of the iteration are inaccessible:
 
 ```scala
 for 5:8
-  println("I have no idea what I'm iterating over")
+  println("I have no idea what I'm iterating over, but it will happen 4 times")
 ```
 
-The `5:8` is a range operation, which behaves similarly to MatLab's range operator. It evaluates to a generator that creates the matrix `(5, 6, 7, 8)` one element at a time; and will be converted to the full matrix if you try to use it as one.
+The `5:8` is a range operation, which behaves similarly to MATLAB's range operator. It evaluates to a generator that creates the matrix `(5, 6, 7, 8)` one element at a time; and will be converted to the full matrix if you try to use it as one.
 
-The above loop knowledge of the data it's iterating over. To access values, use:
+The above loop has no knowledge of the data it's iterating over. To access values, use:
 
 ```scala
 for 5:8 as x
@@ -194,7 +197,7 @@ for 5:8 as x
 // prints 5678
 ```
 
-Using the `as` keyword lets you access values, but not mutate them; so `x` in the above code is a variable, not a constant. To know where you are in the loop, use:
+Using the `as` keyword lets you access values, but not mutate them; so `x` in the above code is a constant value, not a variable. To know where you are in the loop, use:
 
 ```scala
 for 5:8 at i
@@ -213,12 +216,12 @@ var mutate_me = 1:4
 for mutate_me as x at i
   mutate_me(i) = x + 1
 
-// Replace each element with its factorial, just cuz
+// Replace each element with its factorial, just cuz. Yes, ! is the factorial unary operator.
 for mutate_me at i as x
   mutate_me(i) = x!
 ```
 
-For matrices with multiple dimensions, the `at` clause produces tuples giving the coordinates (row, column). For example:
+For matrices with multiple dimensions, the `at` clause produces row matrix tuples giving the coordinates (row, column). For example:
 
 ```scala
 for (
@@ -242,8 +245,7 @@ Do-while loops, strictly speaking, don't exist in Hadron. But since blocks can b
 ```scala
 var x = 3
 while {
-  // this is always evaluated at least once
-  print(x)
+  print(x) // this is always evaluated at least once
   x > 0 // the last statement is the loop condition
 } {
   x -= 1

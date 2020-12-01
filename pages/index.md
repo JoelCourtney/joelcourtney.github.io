@@ -7,7 +7,9 @@ css: home
 
 ![example image](/assets/images/blue.png){: #mugshot}
 Test image that will eventually be me with sexy hair:  
-I'm a senior undergraduate at CU Boulder, studying Astrophysics, Computer Science, and Applied Math.
+I am a fifth-year undergraduate at CU Boulder studying Physics, Astrophysics, Computer Science, and Applied Math. I plan to graduate in May 2021.
+
+I built this website with [Jekyll](https://jekyllrb.com/), Markdown, and Bootstrap; so I alone am to blame for the atrocious color scheme.
 
 # Links
 - Personal Email: <joel.e.courtney@gmail.com>
