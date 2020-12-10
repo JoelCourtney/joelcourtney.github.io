@@ -114,7 +114,7 @@ window.onload = function() {
     } else {
         var text = "";
         text += "<h1>Enter Dropbox Access Key</h1>";
-        text += "<p>This tool is for <b>my use only</b>. If you have stumbled across this page accidentally, don't enter an access key. If you do, I don't guaruntee that you won't loose all your data.</p>";
+        text += "<p>This tool is for <b>my use only</b>. If you have stumbled across this page accidentally, don't enter an access key. If you do, I don't guarantee that you won't loose all your data.</p>";
         text += "<br />";
         text += `<form onsubmit="store_access_key()" target="_self">
         <div class="form-group">
