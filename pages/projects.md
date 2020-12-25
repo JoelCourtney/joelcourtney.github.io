@@ -10,9 +10,9 @@ permalink: projects
 
 The interpreter is written in Kotlin and ANTLR, and runs on the JVM. I don't plan to properly optimize it with JIT compilation as is done in modern interpreters. The repo is well organized but only partially documented. (Catching the docs up is the current task.)
 
-## DnFree
+## DnDCent
 
-[DnFree](https://github.com/JoelCourtney/dnfree) is a minimalist open-source knock-off of DndBeyond. It is a web-based locally hosted character sheet viewer and editor, showcasing my staggering lack of front-end UI design skills. It is very much still a work in progress.
+[DnDCent](https://github.com/JoelCourtney/dndcent) is a minimalist open-source knock-off of DndBeyond. It is a web-based locally hosted character sheet viewer and editor, showcasing my staggering lack of front-end UI design skills. It is very much still a work in progress.
 
 ## MarkDoc
 
